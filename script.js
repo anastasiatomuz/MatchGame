@@ -65,10 +65,18 @@ function cardClicked(imgObj){
 function checkMatch(){
   let img1coor = imgMap.get(recentTries[0]);
   let img2coor = imgMap.get(recentTries[1]);
-  if (keyGrid[img1coor[0]][img1coor[1]] == keyGrid[img2coor[0]][img2coor[1]]){//checks that img1 = img2
+
+  let image1 = keyGrid[img1coor[0]][img1coor[1]];
+  let image2 = keyGrid[img2coor[0]][img2coor[1]]
+  console.log(image1[0]);
+
+  console.log(image2[0]);
+
+  console.log(typeof image1);
+  if (keyGrid[img1coor[0]][img1coor[1]] === keyGrid[img2coor[0]][img2coor[1]]){//checks that img1 = img2 | imgxcoor[0] returns row, imgxcoor[1] returns column
     cardsFound.push(recentTries[0]);
     cardsFound.push(recentTries[1]);
-    setsMatched ++;
+    setsMatched++;
     recentTries = [];//empties array that stores img objects for keeping track of guesses
   } else {
     //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep/39914235#39914235
@@ -97,13 +105,27 @@ function resetGame(){
     obj.src = "blank.jpg";
   }
   scoreText.innerHTML = 0;
+  randomize();
 }
 
 function randomize() {
+  
+  let string = "";
   copyOfList = [...colorsArray];
+ 
   for (let r = 0; r < 4; r ++){
-
+    let substring = "";
+       for (let c = 0; c < 4; c ++){
+        let toMove = copyOfList.splice(Math.floor(Math.random() * copyOfList.length), 1).toString(); //https://www.w3schools.com/js/js_json_stringify.asp#:~:text=Stringify%20a%20JavaScript%20Object&text=Use%20the%20JavaScript%20function%20JSON,string%20following%20the%20JSON%20notation.
+      
+        keyGrid[r][c] = toMove;
+     
+        substring += keyGrid[r][c] + " ";
+    }
+    
+    string += substring + "\n";
   }
+  console.log(string);
 }
 
 /*
@@ -112,6 +134,3 @@ reason for calling cardClicked inside an anonymous function:
 you will automoatically have the function run if the function inside the addEventListener has parameters, so you need to prevent that 
 further explanation: https://stackoverflow.com/questions/30354136/function-call-with-parameters-to-addeventlistener-inside-a-loop 
 */
-
-
-
