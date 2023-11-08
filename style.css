@@ -3,14 +3,6 @@ html {
   width: 100%;
 }
 
-.grid {
-  display: grid;
-  padding-left: 10%;
-  padding-right:10%;
-  grid-gap: 8px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-}
 
 img {
   width: 100%;
@@ -20,9 +12,93 @@ img {
 }
 
 .header {
-  padding: 5px;
+  padding: 2px;
   text-align: center;
-  background: lightgray;
-  color: white;
+  background: lightblue;
+  color: rgb(53, 147, 178);
   font-size: 24px;
+}
+
+#instructions{
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(53, 147, 178);
+  padding-right:10%;
+  padding-left: 10%;
+}
+
+#scorelabel{
+
+  text-align: center;
+
+}
+
+#reset{
+  position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#center-reset{
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+/*
+using CSS grid to manage a 4x4 layout of images
+general, viewport
+*/
+.grid {
+  display: grid;
+  padding-left: 30%;
+  padding-right:30%;
+  grid-gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+
+/*
+Style for smaller Desktop viewport 
+*/
+@media (min-width: 1025px) and (max-width: 1250px){
+  .grid {
+    padding-left: 30%;
+    padding-right:30%;
+
+  }  
+}
+
+/*
+Style for larger Desktop viewport 
+*/
+@media (min-width: 1251px){
+  .grid {
+    padding-left: 35%;
+    padding-right:35%;
+
+  }  
+}
+
+/*
+Style for Tablet viewport 
+*/
+@media (min-width: 501px) and (max-width: 800px){
+  .grid {
+    padding-left: 20%;
+    padding-right: 20%;
+
+  }  
+}
+
+
+/*
+Style for Mobile viewport 
+*/
+@media (max-width: 500px){
+  .grid {
+    padding-left: 20%;
+    padding-right: 20%;
+
+  }  
 }

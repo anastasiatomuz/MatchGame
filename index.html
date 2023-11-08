@@ -12,11 +12,15 @@
 
 <body onload="randomize();">
   <div class="header">
-    <h1>Match Game</h1>
+    <h1>MATCH GAME</h1>
   </div>
-  Hello world
+  <div id="instructions">Each of the gray boxes below is a flipped-down 
+    card. To flip it over, simply click on it. Your job is to flip over two cards
+  at a time such that the pair have the same color. To win the game, you must flip
+over all 8 pairs. Good luck! </div>
 
-  <p id="ex">sometext</p>
+
+  <p id="scorelabel">Score: <span id="score">0</span></p>
 
 
   <div class="grid">
@@ -38,8 +42,10 @@
     <img id="card33" src="blank.jpg">
   </div>
 
-  <p>Score: <span id="score"></span></p>
+  <div id="center-reset">
   <button id="reset" onclick="resetGame()">Reset</button>
+  </div>
+</div>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ let setsMatched = 0;//keeps track of how many sets the user matched correctly; m
 let scoreText = document.getElementById("score");
 const imgMap = new Map();
 let cardsFound = [];//array to store the cards that have already been found
-const text = document.getElementById("ex");
+const instructions = document.getElementById("instructions");
 
 //the answer key
 let keyGrid = [
@@ -79,7 +79,13 @@ function checkMatch(){
     setsMatched++;
     recentTries = [];//empties array that stores img objects for keeping track of guesses
   } else {
-    //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep/39914235#39914235
+
+    /*
+    
+    sleep function doesn't exist in JS, so you have to make your own
+    credits to Dan Dascalescu 
+    https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep/39914235#39914235
+    */
     function sleep(ms) {return new Promise(resolve => setTimeout(resolve, ms));}
   
     async function demo() {
@@ -94,7 +100,8 @@ function checkMatch(){
 }
 
 function gameWon(){
-  text.innerHTML = "You won!";
+  instructions.innerHTML = `You won! It took you ${score} clicks.
+  Click the reset button below to play again.`;
 }
 
 //function that resets the game
@@ -105,6 +112,10 @@ function resetGame(){
     obj.src = "blank.jpg";
   }
   scoreText.innerHTML = 0;
+  instructions.innerHTML = `Each of the gray boxes below is a flipped-down 
+  card. To flip it over, simply click on it. Your job is to flip over two cards
+at a time such that the pair have the same color. To win the game, you must flip
+over all 8 pairs. Good luck!`;
   randomize();
 }
 
@@ -131,6 +142,6 @@ function randomize() {
 /*
 
 reason for calling cardClicked inside an anonymous function: 
-you will automoatically have the function run if the function inside the addEventListener has parameters, so you need to prevent that 
+you will automatically have the function run if the function inside the addEventListener has parameters, so you need to prevent that 
 further explanation: https://stackoverflow.com/questions/30354136/function-call-with-parameters-to-addeventlistener-inside-a-loop 
 */
