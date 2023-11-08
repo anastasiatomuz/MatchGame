@@ -3,12 +3,17 @@ html {
   width: 100%;
 }
 
+body {
+  background-color: rgb(224, 253, 255);
+}
 
 img {
   width: 100%;
   height: 100%;
   min-height: 100%;
   min-width: 100%;
+  cursor:pointer;
+  border-radius: 5px;
 }
 
 .header {
@@ -17,6 +22,7 @@ img {
   background: lightblue;
   color: rgb(53, 147, 178);
   font-size: 24px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #instructions{
@@ -25,18 +31,31 @@ img {
   color: rgb(53, 147, 178);
   padding-right:10%;
   padding-left: 10%;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 25px;
 }
 
 #scorelabel{
 
   text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:30px
 
 }
 
 #reset{
   position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#reset:hover {
+  background-color:rgb(181,181,181);
+  cursor:pointer;
 }
 
 #center-reset{
@@ -49,8 +68,8 @@ using CSS grid to manage a 4x4 layout of images
 general, viewport
 */
 .grid {
-  display: grid;
-  padding-left: 30%;
+  display:grid;
+  padding-left:30%;
   padding-right:30%;
   grid-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
